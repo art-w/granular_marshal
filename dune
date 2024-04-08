@@ -1,0 +1,32 @@
+(library
+ (name granular_marshal)
+ (modules granular_marshal))
+
+(executable
+ (name test_marshal)
+ (modules test_marshal)
+ (libraries unix))
+
+(executable
+ (name test_granular)
+ (modules test_granular)
+ (libraries granular_marshal unix))
+
+(executable
+ (name test_granular_dag)
+ (modules test_granular_dag)
+ (libraries granular_marshal unix))
+
+(executable
+ (name test_granular_dag_map)
+ (modules test_granular_dag_map map_granular)
+ (libraries granular_marshal unix)
+ (flags
+  (-w -9)))
+
+(executable
+ (name test_granular_dag_map2)
+ (modules test_granular_dag_map2 map_granular2)
+ (libraries granular_marshal unix)
+ (flags
+  (-w -9)))
